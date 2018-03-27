@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<head>
+    <title>Javascript Example</title>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://www.webifi.me/Webifi-min-1.0.js"></script>
+    <script type="text/javascript" src="WebifiJavascriptExample.js"></script>
+	<style>
+		.webifiSpacing {
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+	<img src="http://www.webifi.me/img/WebifiLogo_Sm.png" alt="Webifi Logo">
+    <h1>Javascript Example</h1>
+    <table>
+        <tr>
+            <td style="vertical-align:top; width:320px">
+                <div id="webifiControl"></div>
+				<input type="checkbox" id="checkSaveConnectionDetails" />Save connection details
+			</td>
+            <td style="vertical-align:top; width:320px">
+                Send to Session IDs:<br />
+                <input type="text" id="textSendToSessionIds" value="" size="30" style="width: 300px;"/><br />
+                Send to Networks (1 per line):<br />
+                <textarea id="textAreaToNetworks" rows='4' cols='30' style="width: 300px;"></textarea><br />
+                Send data:<br />
+                <input type="text" id="textSendData" value="test data" size="30" style="width: 300px;"/><br />
+                Data type:<br />
+                <input type="text" id="textDataType" value="" size="30" style="width: 300px;" class="webifiSpacing"/><br />
+                <button type="button" onclick="SendData()" id="buttonSendData">Send data</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="SendDiscovery()" id="buttonDiscovery">Discover</button><br />
+                <input type="checkbox" id="checkAddSendCountToString" checked="checked" onchange="AddSendCountToStringChanged()" />Add send count to string<br />
+            </td>
+            <td style="vertical-align:top">
+                Session id: <span id="spanSessionID"></span><br />
+                Request count: <span id="spanRequestCount"></span><br />
+                Send count: <span id="spanSendCount"></span><br />
+                Buffered Amount: <span id="spanBufferedAmount"></span><br />
+                <input type="checkbox" id="checkUseEncryption" onchange="UseEncryptionChanged()" />Use encryption<br />
+                <input type="checkbox" id="checkDiscoverable" checked="checked" onchange="DiscoverableChanged()" />Discoverable<br />
+                <input type="checkbox" id="checkUseWebSocket" checked="checked" onchange="UseWebSocketChanged()" />Use WebSocket<br />
+                <br /><br />
+                Instance Name:<br />
+                <input type="text" id="textInstanceName" value="webifiJsDevice" size="30" class="webifiSpacing"/><br />
+                <button type="button" onclick="SetInstanceName()" id="buttonSetInstanceName">Set Instance Name</button>
+            </td>
+        </tr>
+	</table>
+	<table>
+        <tr>
+            <td>
+                Received data:<br />
+                <textarea id="textAreaRecData" style="height: 240px; width: 450px;" rows="10"></textarea>
+                <br /><button type="button" onclick="ClearRecData()" id="buttonClearRecData">Clear</button>
+            </td>
+            <td>
+                Messages:<br />
+                <textarea id="textAreaMessages" style="height: 240px; width: 450px;" rows="10"></textarea>
+                <br /><button type="button" onclick="ClearMessages()" id="buttonClearMessages">Clear</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
